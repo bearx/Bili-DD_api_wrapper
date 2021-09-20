@@ -34,12 +34,12 @@ def Convertroomid_Vuid(roomid):
         return (t,rid)
     return (t,"Failed")
 def GetSpace_uid(uid):
-    return f"https://space.bilibili.com/{uid}"
+    return (True,f"https://space.bilibili.com/{uid}")
 def GetRoom_roomid(roomid):
-    return f"https://live.bilibili.com/{roomid}"
+    return (True,f"https://live.bilibili.com/{roomid}")
 def GetRoom_Vuid(uid):
     roomid=ConvertVuid_roomid(uid)
-    return f"https://live.bilibili.com/{roomid[-1]}"
+    return (True,f"https://live.bilibili.com/{roomid[-1]}")
 #keys in dict is shown in https://github.com/dd-center/vtbs.moe/blob/master/api.md
 def ListVtb():
     '''
@@ -112,7 +112,7 @@ def GetRoominfo_roomid(roomid):
     :param roomid: room's id
     :return: Get room's info by roomid,https://api.vtbs.moe/v1/room/:roomid
     '''
-    r=requests.get(f" https://api.vtbs.moe/v1/room/{roomid}")
+    r=requests.get(f"https://api.vtbs.moe/v1/room/{roomid}")
     return (r.ok,r.json())
 def ListHFdanmu():
     '''
